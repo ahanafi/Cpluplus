@@ -1,0 +1,83 @@
+/*
+	Nama 	: Ahmad Hanafi
+   NIM  	: 2017102020
+   Prodi : Teknik Informatika
+   Semester : 2 (DUA)
+
+   Program Menghitung total pembayaran untuk penyewaan komik
+*/
+#include <iostream.h>
+#include <conio.h>
+#include <stdio.h>
+
+main()
+{
+	//Dekalrasi Variable
+   char nama[100], status;
+   int banyak_komik;
+   int tanggal_pinjam, tanggal_kembali, lama_pinjam;
+   float biaya_sewa, sub_biaya, total_biaya, harga_komik, besar_diskon, besar_denda;
+   char* ket;      //char to string
+
+	const float diskon = 0.1;
+   const int denda = 3000;
+
+   //Deskripsi
+   printf("================================================= \n");
+   printf("\t \t KOMIK STUDIOS						 \n");
+   printf("================================================= \n");
+   printf("\n");
+   printf("\n");
+   printf("Masukkan Nama Anda \t \t : ");
+	   scanf("%s", &nama);
+   printf("Masukkan status Anda \t \t \n");
+   printf("[M => Member, N => Non-Member] \t : ");
+   	scanf(" %c", &status);
+   printf("Masukkan harga per komik \t : ");
+   	scanf("%f", &harga_komik);
+   printf("Masukkan banyak komik \t \t : ");
+   	scanf("%d", &banyak_komik);
+
+   sub_biaya = banyak_komik * harga_komik;
+   if((banyak_komik > 3) && (status == 'M' || status == 'm')) {
+   	besar_diskon = sub_biaya * diskon;
+      ket = "MEMBER";
+   } else {
+   	besar_diskon = sub_biaya * 0;
+      ket = "NOT-MEMBER";
+   }
+
+   printf("Masukkan tanggal pinjam \t : ");
+   	scanf("%d", &tanggal_pinjam);
+   printf("Masukkan tangal kembali \t : ");
+   	scanf("%d", &tanggal_kembali);
+
+   lama_pinjam = tanggal_kembali - tanggal_pinjam;
+   if(lama_pinjam > 3) {
+   	besar_denda = banyak_komik * (lama_pinjam - 3) * denda;
+   } else {
+   	besar_denda = banyak_komik * 0 * 0;
+   }
+
+   biaya_sewa = sub_biaya - besar_diskon;
+   total_biaya = biaya_sewa + besar_denda;
+
+   clrscr();
+   printf("================================================= \n");
+   printf("\t \t KOMIK STUDIOS						 \n");
+   printf("================================================= \n");
+   printf("\n");
+   printf("Nama \t \t : %s \n", nama);
+   printf("Status \t \t : %s \n", ket);
+   printf("Harga per komik  : %4.0f\n", harga_komik);
+   printf("Banyak komik \t : %d \n", banyak_komik);
+   printf("Diskon \t \t : %2.0f \n", besar_diskon);
+   printf("Tanggal Pinjam \t : %d \n", tanggal_pinjam);
+   printf("Tanggal Kembali  : %d \n", tanggal_kembali);
+   printf("Lama pinjam \t : %d \n", lama_pinjam);
+   printf("Denda \t \t : %2.0f \n", besar_denda);
+   printf("================================================= \n");
+   printf("TOTAL \t \t : %4.0f \n", total_biaya);
+   printf("================================================= \n");
+   getch();
+}

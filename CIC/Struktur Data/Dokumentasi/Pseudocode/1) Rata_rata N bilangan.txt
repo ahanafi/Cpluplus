@@ -1,0 +1,24 @@
+Algoritma Menghitung_rata_rata_N_bilangan
+{
+	Membuat program menghitung rata-rata dari n bilangan yang diinputkan
+}
+
+DEKLARASI
+	- n 	 : integer		- total : integer
+	- rata : real			- x	  : integer
+	- bil  : integer
+
+DESKRIPSI
+	write('Masukkan banyak bilangan : ')
+	read(n)
+
+	total <- 0
+
+	for(x <- 1 to n) do
+		write('Masukkan bil ke-', x)
+		read(bil)
+		total <- total + bil
+	endfor
+
+	rata <- total / n
+	write('Rata-ratanya adalah : ', rata)

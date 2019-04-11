@@ -1,0 +1,30 @@
+/*
+    Nama    : Ahmad Hanafi
+    NIM     : 2017102020
+    Prodi   : Teknik Informatika
+
+    Program menghitun rata-rata dari n bilangan yang diinputkan
+*/
+
+#include <iostream>
+#include <stdio.h>
+#include <conio.h>
+main()
+{
+    /* Deklarasi */
+    float n, bil, jumlah;
+    float rata;
+
+    cout<<"Masukkan banyak bilangan : ";
+    cin>>n;
+    jumlah = 0;
+    for(int i=0; i<n; i++)
+    {
+        cout<<"Masukkan bilangan ke-"<<i+1<<" : ";
+        cin>>bil;
+        jumlah = bil + jumlah;
+    }
+    rata = jumlah / n;
+    cout<<"Rata-rata dari "<<n<<" bilangan yang diinputkan adalah "<<rata;
+    getch();
+}

@@ -1,0 +1,47 @@
+Algoritma Menghitung_banyak_bil_genap_ganjil
+{
+	Membuat program menghitung banyaknya bilangan genap dan ganjil yang diinputkan
+}
+
+DEKLARASI
+	- n		 : integer		- total 	 : integer
+	- rata 	 : real			- jum_genap  : real
+	- bil 	 : integer		- jum_ganjil : real
+	- ganjil : integer		- r_genap 	 : real
+	- genap  : integer		- r_ganjil	 : real
+	- x 	 : integer
+
+DESKRIPSI
+	write('Masukkan banyak bilangan : ')
+	read(n)
+
+	total  <- 0
+	genap  <- 0
+	ganjil <- 0
+	jum_ganjil <- 0
+	jum_genap  <- 0
+
+	for(x <- 1 to n) do
+		write('Masukkan bil ke-', x)
+		read(bil)
+		total <- total + bil
+
+		if(bil MOD 2 != 0) then
+			ganjil <- ganjil + 1
+			jum_ganjil <- jum_ganjil + bil
+		else
+			genap  <- genap + 1
+			jum_genap <- jum_genap + bil
+		endif
+
+	endfor
+
+	rata <- total / n
+	r_ganjil <- jum_ganjil / ganjil
+	r_genap  <- jum_genap  / genap
+
+	write('Rata-rata total adalah : ', rata)
+	write('Rata-rata bil. ganjil adalah : ', r_ganjil)
+	write('Rata-rata bil. genap adalah : ', r_genap)
+	write('Bilangan ganjil ada : ', ganjil, ' buah')
+	write('Bilangan genap ada : ', genap, ' buah')

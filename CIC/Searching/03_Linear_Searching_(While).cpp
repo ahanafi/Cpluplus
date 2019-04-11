@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <conio.h>
+
+main()
+{
+	int n, arr[100];
+	int search, found = 0;
+
+	printf("======================================\n");
+	printf("[ PROGRAM PENCARIAN DATA DI ARRAY ]\n");
+	printf("======================================\n");
+	printf("\n");
+
+	printf("Masukkan n : ");
+	scanf("%d", &n);
+	printf("\n");
+
+   int i = 0;
+   while(i<n){
+		printf("Masukkan angka index ke-%d : ", i+1);
+		scanf("%d", &arr[i]);
+      i++;
+	}
+
+	printf("\n");
+	printf("Masukkan angka yang dicari : ");
+	scanf("%d", &search);
+
+	printf("\n");
+   int j = 0;
+   while( (j < n) && (found == 0)) {
+		if(arr[j] == search){
+			printf("Data %d ditemukan di index ke-%d \n", search, j+1);
+			found = 1;
+		} else {
+	      printf("Data yang di cari tidak ditemukan!");
+         j = n;
+      }
+      j++;
+	}
+	getch();
+}

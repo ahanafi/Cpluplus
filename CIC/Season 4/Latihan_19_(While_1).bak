@@ -1,0 +1,13 @@
+#include <stdio>
+#include <conio.h>
+
+main()
+{
+	int k = 1;
+
+   while(k <= 10) {
+   	printf("Hai \n", k);
+      k++;
+   }
+   getch();
+}

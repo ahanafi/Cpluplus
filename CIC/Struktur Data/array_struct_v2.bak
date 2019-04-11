@@ -1,0 +1,74 @@
+#include <stdio.h>
+#include <conio.h>
+
+typedef struct{
+	char *kodeMK, *namaMK, nilai;
+} MataKuliah;
+
+typedef struct{
+	int nim;
+   char nama[100];
+   MataKuliah mk[100];
+} Mahasiswa;
+
+main()
+{
+	const max = 100;
+   int n;
+	Mahasiswa mhs[max];
+
+	clrscr();
+
+   printf("============================== \n");
+   printf("   PROGRAM ARRAY STRUCT V2      \n");
+   printf("============================== \n");
+   printf("\n");
+
+   printf("Masukkan banyak data : ");
+		scanf("%d", &n);
+
+   for(int i=0; i< n; i++) {
+   	printf("NIM  ke-%d : ", i+1);
+      	scanf("%d", &mhs[i].nim);
+
+      printf("Nama ke-%d : ", i+1);
+      	scanf("%s", &mhs[i].nama);
+
+      for(int j=0; j<2; j++) {
+      	printf("\t Kode MK ke-%d : ", j+1);
+         	scanf("%s", &mhs[i].mk[j].kodeMK);
+
+         printf("\t Nama MK ke-%d : ", j+1);
+         	scanf("%s", &mhs[i].mk[j].namaMK);
+
+         printf("\t Nilai MK ke-%d [A/B/C/D/E] : ", j+1);
+	         scanf(" %c", &mhs[i].mk[j].nilai);
+
+         printf("\n");
+      }
+
+		printf("============================== \n");
+   }
+
+	printf("============================== \n");
+   printf("        RESULTS         \n");
+
+   for(int k=0; k<n; k++){
+   	printf("============================== \n");
+      printf("Mahasiswa ke-%d\n", k+1);
+      printf("\n");
+      printf("NIM  : %d \n", mhs[k].nim);
+      printf("Nama : %s \n", mhs[k].nama);
+
+      printf("\t | Kode MK  | Nama MK | Nilai  | \n");
+      for(int x=0; x<2; x++) {
+      	printf("\t | %s       |", mhs[k].mk[x].kodeMK);
+         printf("      |  %s    |", mhs[k].mk[x].namaMK);
+         printf("      |  %c    |", mhs[k].mk[x].nilai);
+      }
+
+       printf("\n");
+   }
+
+   getch();
+}
